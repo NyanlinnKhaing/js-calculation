@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #span{
+      display: inline-block;
+      width: 290px;
+    }
+  </style>
+</head>
+<body>
+  
+    <h1>Calculate Area</h1>
+    <div>
+      <span>Result :</span>
+      <span id="span"></span>
+
+      <button onclick="addList()">Store</button>
+      <button onclick="clearList()">Clear</button>
+
+      <br>
+      <br>
+
+      <input id="width" type="number" placeholder="width">
+      <input id="breadth" type="number" placeholder="breadth">
+      <input onclick="calcArea()" type="button" value="Calculate">
+    </div>
+
+    <ul id="list"></ul>
+
+    <script>
+      let width = document.getElementById("width")
+      let breadth = document.getElementById("breadth")
+      let span = document.getElementById("span")
+      let list = document.getElementById("list")
+
+      function calcArea(){
+        let area = width.value * breadth.value
+        span.innerHTML = `${width.value} ft x ${breadth.value} ft = ${area} ft <sup>2<sup>`
+      }
+
+      function addList(){
+        list.innerHTML += `<li>${span.innerHTML}</li>`
+      }
+
+      function clearList(){
+        list.innerHTML = ""
+        width.value = ""
+        breadth.value = ""
+        span.innerHTML = ""
+      }
+
+    </script>
+
+</body>
+</html>
